@@ -1,0 +1,8 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // The API streams uploads and authorized downloads using its service account.
+    // No public bucket access or permanent Firebase download tokens are required.
+    match /{path=**} { allow read, write: if false; }
+  }
+}
